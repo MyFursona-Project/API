@@ -25,13 +25,14 @@ model Fursona {
 
 model Profile {
   id        Int       @id @default(autoincrement())
-  email     String    @unique
-  username  String
   bio       String?   @default("I have not created a bio")
   fursonas  Fursona[] 
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
-  Artwork   Artwork[]
+  artwork   Artwork[]
+  username  String   @unique
+  email     String   @unique
+  password  String   @unique @default(cuid())
 }
 
 model Flags {
